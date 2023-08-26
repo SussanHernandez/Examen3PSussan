@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="Examen3PSussan.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="20">
+            <Frame BorderColor="#2196F3" CornerRadius="10">
+                <Label Text="NUEVA NOTA"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="#2196F3"
+                       FontSize="30"
+                       FontAttributes="Bold"/>
+            </Frame>
+
+            <Label Text="Fecha:"
+                   TextColor="#2196F3"
+                   FontSize="18"/>
+            <DatePicker x:Name="datePicker"
+                MinimumDate="{x:Static sys:DateTime.Now}"
+                Date="{x:Static sys:DateTime.Now}"
+                BackgroundColor="White"
+                TextColor="Black" />
+
+            <Label Text="Descripción:" 
+                   TextColor="#2196F3"
+                   FontSize="18"/>
+            <Editor x:Name="txtDescription"
+                    Keyboard="Text"
+                    AutoSize="TextChanges"
+                    MaxLength="50"
+                    Placeholder="Escriba una descripción"
+                    />
+
+            <StackLayout Spacing="10">
+                <Label Text="IMAGEN"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="#2196F3"
+                       FontSize="20"/>
+
+                <Image x:Name="imgFoto"
+                       Source="foto.png"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center" 
+                       WidthRequest="300"
+                       HeightRequest="220" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+
+            <Button Text="Grabar audio" 
+                    x:Name="btnGrabar" 
+                    BackgroundColor="LimeGreen"
+                    TextColor="White"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Clicked="btnGrabar_Clicked"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="50">
+                <Button x:Name="btnAdd"
+                        Text="Agregar"
+                        BackgroundColor="Indigo"
+                        CornerRadius="25"
+                        TextColor="White"
+                        Clicked="btnAdd_Clicked"/>
+
+                <Button x:Name="btnList"
+                        Text="Lista"
+                        BackgroundColor="DarkOrange"
+                        CornerRadius="25"
+                        TextColor="White"
+                        Clicked="btnList_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

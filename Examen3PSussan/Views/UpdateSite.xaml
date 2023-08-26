@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Examen3PSussan xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Examen3PSussan.Views.UpdateSite"
+             xmlns:Converter="clr-namespace:Examen3PSussan.Converter"
+             NavigationPage.HasNavigationBar="False">
+
+    <Examen3PSussan.Resources>
+        <ResourceDictionary>
+            <Converter:ByteArrayToImage x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </Examen3PSussan.Resources>
+
+    <ScrollView>
+        <StackLayout Margin="20">
+
+            <Frame Padding="10" BackgroundColor="#F2F2F2" BorderColor="#E0E0E0" CornerRadius="10" HasShadow="True">
+                <Grid>
+                    <Label Text="ACTUALIZAR" 
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand"
+                           TextColor="#01A3FF" 
+                           FontSize="24"
+                           FontAttributes="Bold"/>
+                </Grid>
+            </Frame>
+
+
+            <StackLayout Margin="0,20">
+
+                <Label Text="IMAGEN"
+                       HorizontalOptions="Center"
+                       TextColor="#01A3FF" 
+                       FontSize="20" />
+
+
+                <Image x:Name="imgFoto"
+                       Source="imgMuestra.png"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center" 
+                       WidthRequest="300"
+                       HeightRequest="220" >
+
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+
+                </Image>
+            </StackLayout>
+
+            <Label Text="Fecha:"
+                   TextColor="#01A3FF"
+                   FontSize="20"
+                   Margin="0,20,0,5" />
+
+            <Entry x:Name="txtFecha"
+                   Keyboard="Text"
+                   Placeholder="Fecha"
+                   HorizontalOptions="FillAndExpand" 
+                   IsEnabled="False"/>
+
+            <Label Text="Descripcion:"
+                   TextColor="#01A3FF"
+                   FontSize="20"
+                   Margin="0,20,0,5" />
+
+            <Editor x:Name="txtDescription"
+                    Keyboard="Text"
+                    AutoSize="TextChanges"
+                    MaxLength="50"
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="Descripción"/>
+
+         
+
+            <Button Text="Grabar audio" 
+                    x:Name="btnGrabar" 
+                    BackgroundColor="LimeGreen"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="btnGrabar_Clicked"
+                    Margin="0,0,0,20"/>
+
+            <Button Text="Actualizar"
+                    x:Name="btnAdd"
+                    BackgroundColor="Indigo"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="btnAdd_Clicked" />
+
+        </StackLayout>
+    </ScrollView>
+</Examen3PSussan>
